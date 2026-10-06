@@ -1,0 +1,11 @@
+name = "coursework"
+description = "rigorous software engineering practices course coursework development"
+version = "0.1.0-dev"
+
+authors = ["arnur"]
+maintainers = ["arnur <an3002@hw.ac.uk>"]
+licenses = "MIT"
+website = ""
+tags = ["spark", "cw"]
+
+executables = ["test_asbs"]
