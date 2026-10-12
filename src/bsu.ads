@@ -17,38 +17,50 @@ is
    -- Deploy the thrust reversers (braking system).
    procedure DeployThrustReversers
    with
-     Global => (Output => ThrustReversersDeployed),
-     Depends => (ThrustReversersDeployed => null);
+     Global  => (Output => ThrustReversersDeployed),
+     Depends => (ThrustReversersDeployed => null),
+     Pre     => True,
+     Post    => ThrustReversersDeployed;
 
-   -- Stow the thrust reversers (braking system). 
+   -- Stow the thrust reversers (braking system).
    procedure StowThrustReversers
    with
-     Global => (Output => ThrustReversersDeployed),
-     Depends => (ThrustReversersDeployed => null);
-   
+     Global  => (Output => ThrustReversersDeployed),
+     Depends => (ThrustReversersDeployed => null),
+     Pre     => True,
+     Post    => not ThrustReversersDeployed;
+
    -- Returns True when thrust reversers are deployed; otherwise False.
    function isDeployedThrustReversers return Boolean
    with
-     Global => (Input => ThrustReversersDeployed),
-     Depends => (isDeployedThrustReversers'Result => ThrustReversersDeployed);
+     Global  => (Input => ThrustReversersDeployed),
+     Depends => (isDeployedThrustReversers'Result => ThrustReversersDeployed),
+     Pre     => True,
+     Post    => isDeployedThrustReversers'Result = ThrustReversersDeployed;
 
    -- Extend the ground spoilers (braking system).
    procedure ExtendGroundSpoilers
    with
-     Global => (Output => GroundSpoilersExtended),
-     Depends => (GroundSpoilersExtended => null);
+     Global  => (Output => GroundSpoilersExtended),
+     Depends => (GroundSpoilersExtended => null),
+     Pre     => True,
+     Post    => GroundSpoilersExtended;
 
    -- Retract the ground spoilers (braking system).
    procedure RetractGroundSpoilers
    with
-     Global => (Output => GroundSpoilersExtended),
-     Depends => (GroundSpoilersExtended => null);
-   
+     Global  => (Output => GroundSpoilersExtended),
+     Depends => (GroundSpoilersExtended => null),
+     Pre     => True,
+     Post    => not GroundSpoilersExtended;
+
    -- Returns True when ground spoilers are extended; otherwise False.
    function isExtendedGroundSpoilers return Boolean
-   with 
-     Global => (Input => GroundSpoilersExtended),
-     Depends => (isExtendedGroundSpoilers'Result => GroundSpoilersExtended);
+   with
+     Global  => (Input => GroundSpoilersExtended),
+     Depends => (isExtendedGroundSpoilers'Result => GroundSpoilersExtended),
+     Pre     => True,
+     Post    => isExtendedGroundSpoilers'Result = GroundSpoilersExtended;
 
 end BSU;
 
