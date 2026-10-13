@@ -8,7 +8,7 @@ project Coursework is
    for Main use ("test_asbs.adb");
 
    package Compiler is
-      for Default_Switches ("Ada") use Coursework_Config.Ada_Compiler_Switches;
+      for Switches ("Ada") use ("-gnat2022");
    end Compiler;
 
    package Binder is

@@ -9,3 +9,6 @@ website = ""
 tags = ["spark", "cw"]
 
 executables = ["test_asbs"]
+
+[[depends-on]]
+gnatprove = "^16.1.0"
